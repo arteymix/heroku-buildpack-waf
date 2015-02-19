@@ -1,0 +1,19 @@
+#!/usr/bin/env sh
+
+set -e
+
+build_dir=$1
+cache_dir=$2
+
+waf=$build_dir/waf
+
+# download waf release if missing
+if [ ! -x $build_dir/waf ]; then
+    wget http://ftp.waf.io/pub/release/waf-1.8.6 -O $build_dir/waf
+    chmod +x $build_dir/waf
+fi
+
+cd $build_dir
+
+$waf configure
+$waf build

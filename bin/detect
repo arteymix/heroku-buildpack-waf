@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+
+if [ -f $1/wscript ]; then
+    echo "waf"
+    exit 0
+else
+    echo "no"
+    exit 1
+fi
